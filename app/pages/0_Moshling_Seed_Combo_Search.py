@@ -1,11 +1,12 @@
 import streamlit as st
 from tools.constants import COLOR_LIST, SEED_DICT, SEED_LIST
-from tools.find_moshling import find_moshling
+from tools.helper_functions import create_header, get_moshling_info
 from tools.seed_search import search_moshling_by_seed
 
-st.header('Moshling Seed Combo Search', divider='rainbow')
-text = 'Select any number of seeds and colors to find out which moshlings are attracted to that combination.'
-st.markdown(f'<p style="font-size: 20px"> {text} </p>', unsafe_allow_html=True)
+create_header(
+    'Moshling Seed Combo Search',
+    'Select any number of seeds and colors to find out which moshlings are attracted to that combination.',
+)
 
 type_of_results = st.selectbox("Type of results", options=["General", "Specific"])
 
@@ -42,6 +43,6 @@ mosh_results = []
 if selected_combo:
     mosh_results = search_moshling_by_seed(selected_combo, type_of_results)
 
-output = find_moshling(mosh_results, printable=True)
+output = get_moshling_info(mosh_results, printable=True)
 
 st.dataframe(output, use_container_width=True)

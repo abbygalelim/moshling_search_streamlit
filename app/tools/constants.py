@@ -1,3 +1,6 @@
+from os import path
+
+import pandas as pd
 import requests
 
 SEED_DICT = {
@@ -38,6 +41,10 @@ COLOR_LIST = [
     'black',
 ]
 
+GARDEN_PATH = f'{path.dirname(__file__)}/garden.csv'
+GARDEN_DATA = pd.read_csv(GARDEN_PATH)
+MOSHLING_LIST = GARDEN_DATA['Name'].tolist()
+
 RARITY_ID = {0: 'Ultra Rare', 1: 'Rare', 2: 'Uncommon', 3: 'Common'}
 
 MOSHLING_API = "https://moshionline.net/api?zoo"
@@ -60,16 +67,19 @@ for set in DATA:
             for req in m['moshlingRequirements']:
                 seed_file = req['path'].split('/')[2].split('.')[0]
                 seed_combo.append(seed_file)
+
+            rarity = m['rarityid']
         else:
             seed_combo = ['mission', 'mission', 'mission']
+            rarity = -1
 
         assert len(seed_combo) == 3
         MOSHLINGS_SEED_COMBOS[mosh_name] = seed_combo
 
-        rarity = m['rarityid']
         if rarity in MOSHLING_RARITY:
             MOSHLING_RARITY[rarity].append(mosh_name)
         else:
             MOSHLING_RARITY[rarity] = [mosh_name]
 
+    assert set_mosh, f'Could not find any moshlings for {set_name}'
     SET_AND_MOSHLINGS[set_name] = set_mosh

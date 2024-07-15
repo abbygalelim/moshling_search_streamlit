@@ -9,7 +9,6 @@ def search_moshling_by_seed(
     Return: dataframe of moshlings whose combinations include the specified seeds
     '''
     selected_combo.sort(key=lambda x: x[0], reverse=True)
-    print(selected_combo)
 
     ret = []
 
