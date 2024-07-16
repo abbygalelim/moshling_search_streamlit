@@ -15,7 +15,7 @@ DJ Quack,Yes
 Prof. Purplex,No
 Peppy,No
 Tiki,No
-Subwoofer,No
+Subwoofer,Yes
 Pinestein,No
 Prof. Heff,Yes
 Pizmo,No
@@ -41,7 +41,7 @@ Stanley,Yes
 Blurp,No
 Cali,No
 Fumble,No
-Dipsy,No
+Dipsy,Yes
 Honey,No
 Flumpy,No
 I.G.G.Y.,No
@@ -63,7 +63,7 @@ Astro,No
 Bao,No
 Gumdrop,No
 Harley,No
-Nancy,No
+Nancy,Yes
 Benedict,Yes
 Shrewman,Yes
 Chio,No
@@ -78,7 +78,7 @@ Moxy,No
 Purrsley,No
 Gumpty,Yes
 Vinnie,No
-Hissy,No
+Hissy,Yes
 Swizzle,No
 YoYo,Yes
 Little Bad Bill,Yes
@@ -131,7 +131,7 @@ Doyle,No
 Chop Chop,Yes
 Sooki-Yaki,Yes
 Shelby,Yes
-General Fuzuki,No
+General Fuzuki,Yes
 Betty,Yes
 Boomer,Yes
 Cherry Bomb,Yes
@@ -153,7 +153,7 @@ Juniper,No
 Oopsy,No
 Prickles,No
 Fifi,Yes
-McNulty,No
+McNulty,Yes
 White Fang,No
 Scamp,No
 Tumbles,Yes
@@ -240,7 +240,7 @@ Busling,No
 Lips,No
 Shmoops,Yes
 Zonkers,No
-Peekaboo,No
+Peekaboo,Yes
 Ivy,Yes
 Shed,No
 Truffle,No

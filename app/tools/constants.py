@@ -42,8 +42,7 @@ COLOR_LIST = [
 ]
 
 GARDEN_PATH = f'{path.dirname(__file__)}/garden.csv'
-GARDEN_DATA = pd.read_csv(GARDEN_PATH)
-MOSHLING_LIST = GARDEN_DATA['Name'].tolist()
+MOSHLING_LIST = pd.read_csv(GARDEN_PATH)['Name'].tolist()
 
 RARITY_ID = {0: 'Ultra Rare', 1: 'Rare', 2: 'Uncommon', 3: 'Common'}
 

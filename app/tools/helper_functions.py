@@ -1,6 +1,6 @@
 import pandas as pd
 import streamlit as st
-from tools.constants import DATA, GARDEN_DATA, MOSHLING_LIST, MOSHLINGS_SEED_COMBOS, RARITY_ID, SEED_FILE_DICT
+from tools.constants import DATA, GARDEN_PATH, MOSHLING_LIST, MOSHLINGS_SEED_COMBOS, RARITY_ID, SEED_FILE_DICT
 
 
 def create_header(header: str, subheader: str = ''):
@@ -40,7 +40,9 @@ def get_moshling_info(names: list, printable=False) -> pd.DataFrame:
             if curr_name in names:
                 names.remove(curr_name)
                 rarity = RARITY_ID[m['rarityid']] if printable else m['rarityid']
-                owned = GARDEN_DATA.loc[get_moshling_index(curr_name), 'Owned']
+
+                garden_data = pd.read_csv(GARDEN_PATH)
+                owned = garden_data.loc[get_moshling_index(curr_name), 'Owned']
 
                 ret['Name'].append(curr_name)
                 ret['Set'].append(set_name)

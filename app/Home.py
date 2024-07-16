@@ -1,6 +1,9 @@
+import pandas as pd
 import streamlit as st
-from tools.constants import GARDEN_DATA, SET_AND_MOSHLINGS
+from tools.constants import GARDEN_PATH, SET_AND_MOSHLINGS
 from tools.helper_functions import create_header, get_moshling_index, get_moshling_info
+
+GARDEN_DATA = pd.read_csv(GARDEN_PATH)
 
 
 def get_set_stats():
