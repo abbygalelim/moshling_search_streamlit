@@ -1,4 +1,4 @@
-# Moshling Streamlit by Blueshift
+# Moshling Search Streamlit by Blueshift
 Are you an avid Moshi Online user and moshling hunter? Did you wish that you had a fast and clean way of looking up moshlings, their seed combinations, and other stats? Well look no further, as this Streamlit application has all of the features for you! 
 
 ## Pages
