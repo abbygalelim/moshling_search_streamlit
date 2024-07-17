@@ -41,6 +41,7 @@ COLOR_LIST = [
     'black',
 ]
 
+REPO_PATH = path.dirname(path.dirname(path.dirname(__file__)))
 GARDEN_PATH = f'{path.dirname(__file__)}/garden.csv'
 MOSHLING_LIST = pd.read_csv(GARDEN_PATH)['Name'].tolist()
 

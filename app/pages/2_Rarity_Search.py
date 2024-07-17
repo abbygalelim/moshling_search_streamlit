@@ -2,7 +2,7 @@ import streamlit as st
 from tools.constants import MOSHLING_RARITY
 from tools.helper_functions import create_header, get_moshling_info
 
-create_header('Rarity Search', 'Search moshlings by rarity')
+create_header('Rarity Search', 'Search moshlings by rarity.')
 
 rarity_choices = {'': -1, 'Common': 3, 'Uncommon': 2, 'Rare': 1, 'Ultra Rare': 0, 'Mission': -1}
 rarity = st.selectbox('Choose a rarity', options=list(rarity_choices.keys()))

@@ -2,7 +2,7 @@ import streamlit as st
 from tools.constants import MOSHLING_LIST, SET_AND_MOSHLINGS
 from tools.helper_functions import create_header, get_moshling_info
 
-create_header('Moshling Name Search', 'Search up moshlings by set and name')
+create_header('Moshling Name Search', 'Search moshlings by set and name.')
 
 set_list = list(SET_AND_MOSHLINGS.keys())
 set_list.insert(0, '')

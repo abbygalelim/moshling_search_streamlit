@@ -5,7 +5,8 @@ from tools.constants import DATA, GARDEN_PATH, MOSHLING_LIST, MOSHLINGS_SEED_COM
 
 def create_header(header: str, subheader: str = ''):
     st.header(header, divider='rainbow')
-    st.markdown(f'<p style="font-size: 20px"> {subheader} </p>', unsafe_allow_html=True)
+    if subheader:
+        st.markdown(f'<p style="font-size: 20px"> {subheader} </p>', unsafe_allow_html=True)
 
 
 def get_moshling_index(name: str):
