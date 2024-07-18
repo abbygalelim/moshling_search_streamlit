@@ -1,9 +1,34 @@
 import pandas as pd
 import streamlit as st
-from tools.constants import GARDEN_PATH, SET_AND_MOSHLINGS
+from tools.constants import GARDEN_PATH, MOSHLING_LIST, SET_AND_MOSHLINGS, WISHLIST_PATH
 from tools.helper_functions import create_header, get_moshling_index, get_moshling_info
 
+# streamlit run app/Home.py
 GARDEN_DATA = pd.read_csv(GARDEN_PATH)
+
+
+def get_wishlist():
+    name_options = MOSHLING_LIST.copy()
+    name_options.insert(0, '')
+    wishlist_df = pd.read_csv(WISHLIST_PATH)
+
+    st.dataframe(get_moshling_info(wishlist_df['Name'].to_list(), printable=True))
+    new_wish = st.selectbox('Wish for a new moshling:', options=name_options)
+    submit = st.button('Submit')
+
+    if submit:
+        wishlist_df.loc[0, 'Name'] = new_wish
+        wishlist_df.to_csv(WISHLIST_PATH, index=False)
+
+
+def get_garden():
+    mosh_results = []
+    for i in range(len(GARDEN_DATA)):
+        if GARDEN_DATA.loc[i, 'Owned'] == 'Yes':
+            mosh_results.append(GARDEN_DATA.loc[i, 'Name'])
+
+    st.write(f'You own {len(mosh_results)}/{len(GARDEN_DATA)} moshlings')
+    st.dataframe(get_moshling_info(mosh_results, printable=True))
 
 
 def get_set_stats():
@@ -33,7 +58,6 @@ def get_set_stats():
     st.table(empty_sets)
 
 
-# streamlit run app/Home.py
 def main():
     create_header(
         "Welcome to :blue[BlueShift's] Moshling Garden",
@@ -42,16 +66,11 @@ def main():
         by seed combinations, name, set, ownership, and rarity.
         ''',
     )
+    st.subheader('Your wishlist', divider='blue')
+    get_wishlist()
 
     st.subheader('Moshlings in your garden', divider='blue')
-
-    mosh_results = []
-    for i in range(len(GARDEN_DATA)):
-        if GARDEN_DATA.loc[i, 'Owned'] == 'Yes':
-            mosh_results.append(GARDEN_DATA.loc[i, 'Name'])
-
-    st.write(f'You own {len(mosh_results)}/{len(GARDEN_DATA)} moshlings')
-    st.dataframe(get_moshling_info(mosh_results, printable=True))
+    get_garden()
 
     st.subheader('Stats', divider='blue')
     get_set_stats()

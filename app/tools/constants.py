@@ -43,8 +43,9 @@ COLOR_LIST = [
 
 REPO_PATH = path.dirname(path.dirname(path.dirname(__file__)))
 GARDEN_PATH = f'{path.dirname(__file__)}/garden.csv'
-MOSHLING_LIST = pd.read_csv(GARDEN_PATH)['Name'].tolist()
+WISHLIST_PATH = f'{path.dirname(__file__)}/wishlist.csv'
 
+MOSHLING_LIST = pd.read_csv(GARDEN_PATH)['Name'].tolist()
 RARITY_ID = {0: 'Ultra Rare', 1: 'Rare', 2: 'Uncommon', 3: 'Common'}
 
 MOSHLING_API = "https://moshionline.net/api?zoo"
@@ -52,7 +53,7 @@ DATA = requests.get(MOSHLING_API).json()
 
 SET_AND_MOSHLINGS = {}
 MOSHLINGS_SEED_COMBOS: dict[str, list] = {}
-MOSHLING_RARITY: dict[int, list] = {}
+MOSHLING_RARITY: dict[int, list] = {3: [], 2: [], 1: [], 0: [], 4: [], -1: []}
 
 for set in DATA:
     set_name = set['name']
@@ -76,10 +77,13 @@ for set in DATA:
         assert len(seed_combo) == 3
         MOSHLINGS_SEED_COMBOS[mosh_name] = seed_combo
 
-        if rarity in MOSHLING_RARITY:
-            MOSHLING_RARITY[rarity].append(mosh_name)
+        if 'Variants' in set_name:
+            MOSHLING_RARITY[4].append(mosh_name)
         else:
-            MOSHLING_RARITY[rarity] = [mosh_name]
+            MOSHLING_RARITY[rarity].append(mosh_name)
 
     assert set_mosh, f'Could not find any moshlings for {set_name}'
     SET_AND_MOSHLINGS[set_name] = set_mosh
+
+
+print(MOSHLING_RARITY[-1])
