@@ -84,6 +84,3 @@ for set in DATA:
 
     assert set_mosh, f'Could not find any moshlings for {set_name}'
     SET_AND_MOSHLINGS[set_name] = set_mosh
-
-
-print(MOSHLING_RARITY[-1])
