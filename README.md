@@ -8,6 +8,7 @@ Are you an avid Moshi Online user and moshling hunter? Did you wish that you had
 
 A summary of the moshlings you own in your garden.
 
+- `Your wishlist`: keep note of the moshling you are currently trying to catch. Double click `Show Wishlist` or `Hide Wishlist` button to show or hide this feature.
 - `Moshlings in your garden`: view the number of moshlings you own and a table of the moshlings' information. The information provided include their name, what set they belong to, whether you own them or not, their rarity, and the color and type of seeds that they require. You can click the title of each column to sort the table by that column.
 - `Stats`: view the number and names of the sets that are completed (you own all of the moshlings in that set), almost complete (you are one moshling away from completing that set), and empty (you do not own any moshlings in that set).
 
@@ -26,7 +27,6 @@ You can search up moshlings based on 1, 2, or 3 seeds. This page will generate r
 View information on moshlings you search by set or name.
 
 - `Search by Set`: select a set from the dropdown list to view a table of information on all of the moshlings within that set.
-
 - `Search by Name`: enter a word or letters to generate a table of information on all of the moshlings that have those letters in their name. For example, searching `Roxy` will show you `Roxy`, `H. Roxy`, `S. Roxy`, and `C. Roxy`.
 
 ### Rarity Search
@@ -34,20 +34,18 @@ View information on moshlings you search by set or name.
 View moshlings based on their rarity
 
 - `Choose a Rarity`: select a rarity from the dropdown list to view a table of information on all of the moshlings under that rarity. The number of moshlings you own within that rarity and number of moshlings you do not own are also listed.
-
 - `Filter by Owned`: further limit your search by selecting `Owned` to only view the moshlings within that rarity that you have in your garden or `Not Owned` to see the ones you do not have. Leave that selection blank if you wish to view both.
 
 ### Edit Garden
 
 Add or remove moshlings from your garden
 
-- `Choose a moshling`: select the moshling you would like to add or remove from your garden
-- `Add` or `Remove` to add or remove the selected moshling
-- Click the same `Add` or `Remove` button again to see the changes take place. You can also navigate to the `Home` page to see that moshling now listed in your garden.
+- `Choose a moshling`: select the moshling you would like to add or remove from your garden.
+- Double click `Add` or `Remove` to add or remove the selected moshling. You can also navigate to the `Home` page to see that moshling now listed in your garden.
 
 ### Help
 
-View path to where you have `moshling_search_streamlit` and `garden.csv` stored in your files.
+View path to where you have `moshling_search_streamlit` and `garden.csv` stored in your files. There is also a link back to this README.md.
 
 ## Getting Started
 

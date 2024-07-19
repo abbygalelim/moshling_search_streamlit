@@ -11,18 +11,37 @@ def get_wishlist():
     name_options = MOSHLING_LIST.copy()
     name_options.insert(0, '')
     wishlist_df = pd.read_csv(WISHLIST_PATH)
+    show = bool(wishlist_df.loc[0, 'Show'])
 
-    st.dataframe(get_moshling_info(wishlist_df['Name'].to_list(), printable=True))
-    new_wish = st.selectbox('Wish for a new moshling:', options=name_options)
-    submit = st.button('Submit')
+    # show = st.button('Show Wishlist')
+    if show:
+        st.subheader('Your wishlist', divider='blue')
+        st.dataframe(get_moshling_info(wishlist_df['Name'].to_list(), printable=True))
 
-    if submit:
-        wishlist_df.loc[0, 'Name'] = new_wish
-        wishlist_df.to_csv(WISHLIST_PATH, index=False)
+        new_wish = st.selectbox('Wish for a new moshling:', options=name_options)
+        col_1, col_2 = st.columns(2)
+        with col_1:
+            submit = st.button('Submit')
+        with col_2:
+            hide_button = st.button('Hide Wishlist')
+
+        if submit:
+            wishlist_df.loc[0, 'Name'] = new_wish
+            wishlist_df.to_csv(WISHLIST_PATH, index=False)
+        if hide_button:
+            wishlist_df.loc[0, 'Show'] = 'False'
+            wishlist_df.to_csv(WISHLIST_PATH, index=False)
+    else:
+        show_button = st.button('Show Wishlist')
+        if show_button:
+            wishlist_df.loc[0, 'Show'] = 'True'
+            wishlist_df.to_csv(WISHLIST_PATH, index=False)
 
 
 def get_garden():
     mosh_results = []
+
+    st.subheader('Moshlings in your garden', divider='blue')
     for i in range(len(GARDEN_DATA)):
         if GARDEN_DATA.loc[i, 'Owned'] == 'Yes':
             mosh_results.append(GARDEN_DATA.loc[i, 'Name'])
@@ -34,6 +53,7 @@ def get_garden():
 def get_set_stats():
     full_sets, almost_full_sets, empty_sets = [], [], []
 
+    st.subheader('Stats', divider='blue')
     for set, mosh_list in SET_AND_MOSHLINGS.items():
         total_count = len(mosh_list)
         owned_count = 0
@@ -66,13 +86,8 @@ def main():
         by seed combinations, name, set, ownership, and rarity.
         ''',
     )
-    st.subheader('Your wishlist', divider='blue')
     get_wishlist()
-
-    st.subheader('Moshlings in your garden', divider='blue')
     get_garden()
-
-    st.subheader('Stats', divider='blue')
     get_set_stats()
 
 
