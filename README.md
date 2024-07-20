@@ -2,6 +2,10 @@
 
 Are you an avid Moshi Online user and moshling hunter? Did you wish that you had a fast and clean way of looking up moshlings, their seed combinations, and other stats? Well look no further, as this Streamlit application has all of the features for you!
 
+Quick commands:
+- `streamlit run app/Home.py` to run the application
+- `git pull` to get the latest update of this repository
+
 ## Pages
 
 ### Home
