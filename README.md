@@ -72,8 +72,14 @@ The file `garden.csv` (full path can be found in the `Help` page) keeps track of
 
 ## Local Installation
 
-Open up a terminal window and run `pip install streamlit` to install Streamlit. More info about that download process [here](https://docs.streamlit.io/get-started/installation/command-line).
+Open a terminal window to complete these actions.
 
-Navigate to the place in your files where you would like to download this repo and then run `git clone https://github.com/abbygalelim/moshling_search_streamlit.git` (if you do not have git installed, install it. More info about that process [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git))
+Prerequisites:
+- Python: run `python --version` or python3 --version` to check if you have python installed. If not, download [here](https://www.python.org/downloads/).
+- Pip: after installing Python, run `pip --version` to check if you have pip installed.
+- Streamlit: after confirming you have python and pip, run `pip install streamlit` to install Streamlit. More info about that download process [here](https://docs.streamlit.io/get-started/installation/command-line).
+- Git: run `git --version` to check if you have git installed. More info about that process [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
-Navigate inside of the folder you just cloned (`cd moshling_search_strealit`) and run `streamlit run app/Home.py`. This action will open up the app in your browser for you to now use!
+Navigate to the place in your files where you would like to download this repo and then run `git clone https://github.com/abbygalelim/moshling_search_streamlit.git`.
+
+Navigate inside of the folder you just cloned (`cd moshling_search_strealit`) and run `streamlit run app/Home.py`. This action will open up the app in your browser for you to use!
