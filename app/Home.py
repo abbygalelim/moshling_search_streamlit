@@ -80,7 +80,7 @@ def get_set_stats():
 
 def main():
     create_header(
-        "Welcome to :blue[BlueShift's] Moshling Garden",
+        "Welcome to Your Moshling Garden",
         '''
         Use this app to search and sort through the moshlings in Moshi Online
         by seed combinations, name, set, ownership, and rarity.
