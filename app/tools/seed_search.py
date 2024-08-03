@@ -2,11 +2,11 @@ from tools.constants import MOSHLINGS_SEED_COMBOS, SEED_FILE_DICT
 
 
 def search_moshling_by_seed(
-    selected_combo: list, type_of_results: str, all_seed_combos: dict[str, list] = MOSHLINGS_SEED_COMBOS
+    selected_combo: list, type_of_results: str = 'General', all_seed_combos: dict[str, list] = MOSHLINGS_SEED_COMBOS
 ):
     '''
     Param: a list representing the colors and types of each seed and a str representing either specific or general
-    Return: dataframe of moshlings whose combinations include the specified seeds
+    Return: list of names of moshling whose combinations include the specified seeds
     '''
     selected_combo.sort(key=lambda x: x[0], reverse=True)
 

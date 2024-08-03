@@ -12,10 +12,12 @@ def create_header(header: str, subheader: str = ''):
 def get_moshling_index(name: str):
     assert len(MOSHLING_LIST) == len(MOSHLINGS_SEED_COMBOS), 'New moshlings added, update garden.csv'
 
-    try:
-        return MOSHLING_LIST.index(name)
-    except ValueError:
-        return -1
+    return MOSHLING_LIST.index(name)
+
+
+def get_owned(name: str):
+    garden_data = pd.read_csv(GARDEN_PATH)
+    return garden_data.loc[get_moshling_index(name), 'Owned']
 
 
 def get_moshling_info(names: list, printable=False) -> pd.DataFrame:
@@ -42,12 +44,9 @@ def get_moshling_info(names: list, printable=False) -> pd.DataFrame:
                 names.remove(curr_name)
                 rarity = RARITY_ID[m['rarityid']] if printable else m['rarityid']
 
-                garden_data = pd.read_csv(GARDEN_PATH)
-                owned = garden_data.loc[get_moshling_index(curr_name), 'Owned']
-
                 ret['Name'].append(curr_name)
                 ret['Set'].append(set_name)
-                ret['Owned'].append(owned)
+                ret['Owned'].append(get_owned(curr_name))
                 ret['Rarity'].append(rarity)
 
                 color_i = ['Color 1', 'Color 2', 'Color 3']

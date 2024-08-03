@@ -43,6 +43,7 @@ COLOR_LIST = [
 
 REPO_PATH = path.dirname(path.dirname(path.dirname(__file__)))
 GARDEN_PATH = f'{path.dirname(__file__)}/garden.csv'
+POUCH_PATH = f'{path.dirname(__file__)}/pouch.csv'
 WISHLIST_PATH = f'{path.dirname(__file__)}/wishlist.csv'
 
 MOSHLING_LIST = pd.read_csv(GARDEN_PATH)['Name'].tolist()

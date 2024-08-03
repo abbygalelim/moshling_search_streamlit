@@ -13,7 +13,6 @@ def get_wishlist():
     wishlist_df = pd.read_csv(WISHLIST_PATH)
     show = bool(wishlist_df.loc[0, 'Show'])
 
-    # show = st.button('Show Wishlist')
     if show:
         st.subheader('Your wishlist', divider='blue')
         st.dataframe(get_moshling_info(wishlist_df['Name'].to_list(), printable=True))
@@ -80,7 +79,7 @@ def get_set_stats():
 
 def main():
     create_header(
-        "Welcome to Your Moshling Garden",
+        "Welcome to :blue[BlueShift's] Moshling Garden",
         '''
         Use this app to search and sort through the moshlings in Moshi Online
         by seed combinations, name, set, ownership, and rarity.
